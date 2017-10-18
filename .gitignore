@@ -1,0 +1,14 @@
+.DS_Store
+
+# Eclipse Ignore
+.classpath
+.project
+.settings
+.tern-project
+
+# Maven Ignore
+target
+
+# Spring Boot
+mvnw*
+.mvn
