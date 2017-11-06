@@ -45,7 +45,7 @@ public class KecamatanDaoImp implements KecamatanDao {
 	public void delete(Integer id) {
 		Kecamatan kecamatan = getSession().
 				get(Kecamatan.class, id);
-		getSession().delete(id);
+		getSession().delete(kecamatan);
 	}
 
 }

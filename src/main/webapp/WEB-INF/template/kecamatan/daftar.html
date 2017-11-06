@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout/admin/template">
+<head>
+<meta charset="ISO-8859-1">
+<title>Daftar Kecamatan</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<h1>Daftar Kecamatan</h1>
+		<a th:href="@{/kecamatan/form/}">Tambah
+			Kecamatan</a>
+		<table border="1">
+			<tr>
+				<th>ID</th>
+				<th>Nama Kecamatan</th>
+				<th colspan="2">Action</th>
+			</tr>
+			<tr th:each="k : ${daftarKecamatan}">
+				<td th:text="${k.id}" />
+				<td th:text="${k.namaKecamatan}" />
+				<td><a th:href="@{/kecamatan/form(id=${k.id})}">edit</a></td>
+                <td><a th:href="@{/kecamatan/hapus(id=${k.id})}">delete</a></td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:include="header :: head">
+</head>
+<body>
+	<div th:fragment="navbar">
+		<!-- Disini Navbar  -->
+		<div class="navbar">
+		  <a th:href="@{/}"><i class="fa fa-home"></i></a>
+		  <a href="#news">News</a>
+		  <div class="dropdown">
+		    <button class="dropbtn">Penluh 
+		      <i class="fa fa-caret-down"></i>
+		    </button>
+		    <div class="dropdown-content">
+		      <div class="row">
+		        <div class="column">
+		          <h3>Category 1</h3>
+		            <a href="#">Link 1</a>
+		            <a href="#">Link 2</a>
+		            <a href="#">Link 3</a>
+		        </div>
+		        <div class="column">
+		          <h3>Category 2</h3>
+		          <a href="#">Link 1</a>
+		          <a href="#">Link 2</a>
+		          <a href="#">Link 3</a>
+		        </div>
+		        <div class="column">
+		          <h3>Category 3</h3>
+		          <a href="#">Link 1</a>
+		          <a href="#">Link 2</a>
+		          <a href="#">Link 3</a>
+		        </div>
+		      </div>
+		    </div>
+		  </div> 
+		</div>
+	</div>
+
+</body>
+</html>
