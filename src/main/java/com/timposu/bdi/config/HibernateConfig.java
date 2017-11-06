@@ -1,4 +1,4 @@
-package com.timposu.config;
+package com.timposu.bdi.config;
 
 import java.util.Properties;
 
@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan("com.timposu.config")
+@ComponentScan("com.timposu.bdi.config")
 @PropertySource("classpath:db.properties")
 public class HibernateConfig {
 	

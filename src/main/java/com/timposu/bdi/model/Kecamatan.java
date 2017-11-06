@@ -1,6 +1,5 @@
 package com.timposu.bdi.model;
 
-
-public class BaseEntity {
+public class Kecamatan {
 
 }

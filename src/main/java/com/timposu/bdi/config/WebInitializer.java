@@ -1,4 +1,4 @@
-package com.timposu.config;
+package com.timposu.bdi.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
