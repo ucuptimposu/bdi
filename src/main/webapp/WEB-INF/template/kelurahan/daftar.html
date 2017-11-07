@@ -5,33 +5,35 @@
 	layout:decorator="layout/admin/template">
 <head>
 <meta charset="ISO-8859-1">
-<title>Daftar Kecamatan</title>
+<title>Daftar Kelurahan</title>
 </head>
 <body>
 	<div layout:fragment="content">
 		
 		<ul class="breadcrumb">
 		  <li><a th:href="@{/}">Home</a></li>
-		  <li>Kecamatan</li>
+		  <li>Kelurahan</li>
 		</ul>
 		
 		<div class="container-kecil">
-			<h1>Daftar Kecamatan</h1>
-			<a th:href="@{/kecamatan/form/}">Tambah Kecamatan</a>
+			<h1>Daftar Kelurahan</h1>
+			<a th:href="@{/kelurahan/form/}">Tambah Kelurahan</a>
 			<br />
 			<br />
 			<div style="overflow-x:auto;">
 				<table>
 					<tr>
 						<th>No</th>
-						<th>Nama Kecamatan</th>
-						<th colspan="2">Action</th>
+						<th>Nama Kelurahan</th>
+						<th>Kecamatan</th>
+						<th colspan="2"></th>
 					</tr>
-					<tr th:each="k, index : ${daftarKecamatan}">
+					<tr th:each="k, index : ${daftarKelurahan}">
 						<td th:text="${index.count}" />
-						<td th:text="${k.namaKecamatan}" />
-						<td><a th:href="@{/kecamatan/form(id=${k.id})}">edit</a></td>
-		                <td><a th:href="@{/kecamatan/hapus(id=${k.id})}" onclick="return confirm('Anda yakin mau hapus data ini?');">delete</a></td>
+						<td th:text="${k.namaKelurahan}" />
+						<td th:text="${k.kecamatan.namaKecamatan}" />
+						<td><a th:href="@{/kelurahan/form(id=${k.id})}">edit</a></td>
+		                <td><a th:href="@{/kelurahan/hapus(id=${k.id})}" onclick="return confirm('Anda yakin mau hapus data ini?');">delete</a></td>
 					</tr>
 				</table>
 			</div>

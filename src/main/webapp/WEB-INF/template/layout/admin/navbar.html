@@ -9,6 +9,15 @@
 		<div class="navbar">
 			<a th:href="@{/}"><i class="fa fa-home"></i></a>
 			<div class="dropdown">
+				<button class="dropbtn"> Master <i class="fa fa-caret-down"></i>
+				</button>
+				<div class="dropdown-content">
+					<a th:href="@{/kecamatan/}">Kecamatan</a> 
+					<a th:href="@{/kelurahan/}">Kelurahan</a> 
+					<a href="#">Link 3</a>
+				</div>
+			</div>
+			<div class="dropdown">
 				<button class="dropbtn"> Penluh <i class="fa fa-caret-down"></i>
 				</button>
 				<div class="dropdown-mega">
@@ -26,15 +35,6 @@
 							<a href="#">Link 1</a> <a href="#">Link 2</a> <a href="#">Link 3</a>
 						</div>
 					</div>
-				</div>
-			</div>
-			<div class="dropdown">
-				<button class="dropbtn"> Pengaturan <i class="fa fa-caret-down"></i>
-				</button>
-				<div class="dropdown-content">
-					<a th:href="@{/kecamatan/}">Kecamatan</a> 
-					<a href="#">Link 2</a> 
-					<a href="#">Link 3</a>
 				</div>
 			</div>
 		</div>

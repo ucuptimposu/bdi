@@ -12,20 +12,33 @@
 	<div layout:fragment="content">
 		<ul class="breadcrumb">
 		  <li><a th:href="@{/}">Home</a></li>
-		  <li><a th:href="@{/kecamatan/}">Kecamatan</a></li>
+		  <li><a th:href="@{/kelurahan/}">Kelurahan</a></li>
 		  <li>Form</li>
 		</ul>
 		
 		<div class="container-kecil">
-			<h1>Form Kecamatan</h1>
-			<form action="#" th:action="@{/kecamatan/form}"	th:object="${kecamatan}" method="post">
+			<h1>Form Kelurahan</h1>
+			<form th:action="@{/kelurahan/form}" th:object="${kelurahan}" method="post">
 				<div class="row">
 			      <div class="col-25">
-			        <label for="fname">Nama Kecamatan</label>
+			        <label for="fname">Nama Kelurahan</label>
 			      </div>
 			      <div class="col-75">
-			        <input type="text" th:field="*{namaKecamatan}" placeholder="Nama Kecamatan..">
-			        <span th:if="${#fields.hasErrors('namaKecamatan')}"	th:errors="*{namaKecamatan}">Error</span>
+			        <input type="text" th:field="*{namaKelurahan}" placeholder="Nama Kelurahan..">
+			        <span th:if="${#fields.hasErrors('namaKelurahan')}"	th:errors="*{namaKelurahan}">Error</span>
+			      </div>
+			    </div>
+			    <div class="row">
+			      <div class="col-25">
+			        <label for="country">Kecamatan</label>
+			      </div>
+			      <div class="col-75">
+			        <select name="kecamatan" th:field="*{kecamatan.id}">
+			          <option th:each="k : ${daftarKecamatan}" 
+			          		  th:value="${k.id}"
+			          		  th:text="${k.namaKecamatan}" />
+			        </select>
+			        <span th:if="${#fields.hasErrors('kecamatan')}" th:errors="*{kecamatan}">Error</span>		        
 			      </div>
 			    </div>			   	
 			    <div class="row">

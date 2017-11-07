@@ -36,14 +36,6 @@ public class Kecamatan {
 			)
 	private List<Kelurahan> listKelurahan = new ArrayList<>();
 
-	public List<Kelurahan> getListKelurahan() {
-		return listKelurahan;
-	}
-
-	public void setListKelurahan(List<Kelurahan> listKelurahan) {
-		this.listKelurahan = listKelurahan;
-	}
-
 	public Integer getId() {
 		return id;
 	}
