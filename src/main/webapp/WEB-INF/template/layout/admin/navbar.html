@@ -7,35 +7,36 @@
 	<div th:fragment="navbar">
 		<!-- Disini Navbar  -->
 		<div class="navbar">
-		  <a th:href="@{/}"><i class="fa fa-home"></i></a>
-		  <a href="#news">News</a>
-		  <div class="dropdown">
-		    <button class="dropbtn">Penluh 
-		      <i class="fa fa-caret-down"></i>
-		    </button>
-		    <div class="dropdown-content">
-		      <div class="row">
-		        <div class="column">
-		          <h3>Category 1</h3>
-		            <a href="#">Link 1</a>
-		            <a href="#">Link 2</a>
-		            <a href="#">Link 3</a>
-		        </div>
-		        <div class="column">
-		          <h3>Category 2</h3>
-		          <a href="#">Link 1</a>
-		          <a href="#">Link 2</a>
-		          <a href="#">Link 3</a>
-		        </div>
-		        <div class="column">
-		          <h3>Category 3</h3>
-		          <a href="#">Link 1</a>
-		          <a href="#">Link 2</a>
-		          <a href="#">Link 3</a>
-		        </div>
-		      </div>
-		    </div>
-		  </div> 
+			<a th:href="@{/}"><i class="fa fa-home"></i></a>
+			<div class="dropdown">
+				<button class="dropbtn"> Penluh <i class="fa fa-caret-down"></i>
+				</button>
+				<div class="dropdown-mega">
+					<div class="row">
+						<div class="column">
+							<h3>Category 1</h3>
+							<a href="#">Link 1</a> <a href="#">Link 2</a> <a href="#">Link 3</a>
+						</div>
+						<div class="column">
+							<h3>Category 2</h3>
+							<a href="#">Link 1</a> <a href="#">Link 2</a> <a href="#">Link 3</a>
+						</div>
+						<div class="column">
+							<h3>Category 3</h3>
+							<a href="#">Link 1</a> <a href="#">Link 2</a> <a href="#">Link 3</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="dropdown">
+				<button class="dropbtn"> Pengaturan <i class="fa fa-caret-down"></i>
+				</button>
+				<div class="dropdown-content">
+					<a th:href="@{/kecamatan/}">Kecamatan</a> 
+					<a href="#">Link 2</a> 
+					<a href="#">Link 3</a>
+				</div>
+			</div>
 		</div>
 	</div>
 
