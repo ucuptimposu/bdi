@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout/admin/template">
+<head>
+<meta charset="ISO-8859-1">
+<title>Daftar Kelurahan</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		
+		<ul class="breadcrumb">
+		  <li><a th:href="@{/}">Dashboard</a></li>
+		  <li>Kelurahan</li>
+		</ul>
+		
+		<div class="container-kecil">
+			<h1>Daftar Kelurahan</h1>
+			<a th:href="@{/kelurahan/form/}">Tambah Kelurahan</a>
+			<br />
+			<br />
+			<div style="overflow-x:auto;">
+				<table>
+					<tr>
+						<th>No</th>
+						<th>Nama Kelurahan</th>
+						<th>Kecamatan</th>
+						<th colspan="2"></th>
+					</tr>
+					<tr th:each="k, index : ${daftarKelurahan}">
+						<td th:text="${index.count}" />
+						<td th:text="${k.namaKelurahan}" />
+						<td th:text="${k.kecamatan.namaKecamatan}" />
+						<td><a th:href="@{/kelurahan/form(id=${k.id})}">edit</a></td>
+		                <td><a th:href="@{/kelurahan/hapus(id=${k.id})}" onclick="return confirm('Anda yakin mau hapus data ini?');">delete</a></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

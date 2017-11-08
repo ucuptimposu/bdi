@@ -25,7 +25,7 @@ public class KecamatanController {
 	@GetMapping("/")
 	public String listKecamatan(Model model) {
 		model.addAttribute("daftarKecamatan", ks.list());
-		return "kecamatan/daftar";
+		return "kecamatan/list";
 	}
 	
 	@GetMapping("/form")
