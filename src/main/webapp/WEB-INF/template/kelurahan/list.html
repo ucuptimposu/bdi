@@ -17,7 +17,7 @@
 		
 		<div class="container-kecil">
 			<h1>Daftar Kelurahan</h1>
-			<a th:href="@{/kelurahan/form/}">Tambah Kelurahan</a>
+			<a th:href="@{/kelurahan/form/}"><button class="btn success">Tambah Kelurahan</button></a>
 			<br />
 			<br />
 			<div style="overflow-x:auto;">
@@ -33,7 +33,7 @@
 						<td th:text="${k.namaKelurahan}" />
 						<td th:text="${k.kecamatan.namaKecamatan}" />
 						<td><a th:href="@{/kelurahan/form(id=${k.id})}">edit</a></td>
-		                <td><a th:href="@{/kelurahan/hapus(id=${k.id})}" onclick="return confirm('Anda yakin mau hapus data ini?');">delete</a></td>
+		                <td><a th:href="@{/kelurahan/hapus(id=${k.id})}" onclick="return confirm('Anda yakin mau hapus data ini?');">hapus</a></td>
 					</tr>
 				</table>
 			</div>
