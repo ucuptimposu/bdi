@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout/admin/template">
+<head>
+<meta charset="ISO-8859-1">
+<title>Daftar Giat Penkum Tahun</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		
+		<ul class="breadcrumb">
+		  <li><a th:href="@{/}">Dashboard</a></li>
+		  <li>Penkum</li>
+		</ul>
+		
+		<div class="container-besar">
+			<h1>Daftar Giat Penkum Tahun <span th:text="${tahun}">2017</span></h1>
+			<a th:href="@{/penkum/form/}"><button class="btn success">Tambah Kegiatan</button></a>
+			<br />
+			<br />
+			<div style="overflow-x:auto;">
+				<table>
+					<tr>
+						<th>No</th>
+						<th>Nama Kelurahan</th>
+						<th>Kecamatan</th>
+						<th colspan="2"></th>
+					</tr>
+					<tr th:each="p, index : ${daftarPenkum}">
+						<td th:text="${index.count}" />
+						<td th:text="${p.sasaran}" />
+						<td th:text="${p.tempat}" />
+						<td><a th:href="@{/kelurahan/form(id=${p.id})}">edit</a></td>
+		                <td><a th:href="@{/kelurahan/hapus(id=${p.id})}" onclick="return confirm('Anda yakin mau hapus data ini?');">hapus</a></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -2,23 +2,13 @@ package com.timposu.bdi.dao.imp;
 
 import java.util.List;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.timposu.bdi.dao.KelurahanDao;
 import com.timposu.bdi.model.Kelurahan;
 
 @Repository
-public class KelurahanDaoImp implements KelurahanDao {
-
-	@Autowired
-	private SessionFactory sessionFactory;
-	
-	private Session getSession() {
-		return sessionFactory.getCurrentSession();
-	}
+public class KelurahanDaoImp extends AbstractImpDao implements KelurahanDao {
 	
 	@Override
 	public void save(Kelurahan kelurahan) {
