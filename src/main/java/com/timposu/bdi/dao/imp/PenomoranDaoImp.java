@@ -19,5 +19,4 @@ public class PenomoranDaoImp extends AbstractImpDao implements PenomoranDao {
 		return penomoran;
 	}
 
-
 }

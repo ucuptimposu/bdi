@@ -33,10 +33,10 @@ public class Penkum {
 	@NotNull
 	private JenisPelaksanaanPenkum jenisPelaksanaan = JenisPelaksanaanPenkum.LANGSUNG;
 
-	@NotNull
-	@NotEmpty
+	@NotNull(message = "Wajib diisi")
+	@NotEmpty(message = "Tidak boleh kosong")
 	@Column(nullable = false)
-	@Size(min = 3)
+	@Size(min = 3, message = "Minimal 3 huruf")
 	private String sasaran;
 
 	@NotNull
@@ -45,7 +45,7 @@ public class Penkum {
 	@Size(min = 3)
 	private String materi;
 
-	@NotNull
+	@NotNull(message = "Wajib diisi dalam format angka")
 	@Column(nullable = false)
 	private Integer jumlahPeserta;
 

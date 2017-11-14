@@ -3,8 +3,6 @@ package com.timposu.bdi.controller;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,12 +64,6 @@ public class PenkumController {
 		m.addAttribute("daftarKelurahan", kelurahanService.list());
 		m.addAttribute("penkum", new Penkum());
 		
-//		if (id != null) {
-//			Penkum penkum = penkumService.getPenkum(id);
-//			if (penkum != null) {
-//				m.addAttribute("penkum", penkum);
-//			}
-//		}
 		return "penkum/form";
 	}
 	
@@ -93,9 +85,8 @@ public class PenkumController {
 			BindingResult bindingResult) {
 			
 		m.addAttribute("daftarKelurahan", kelurahanService.list());
-		List<Penomoran> penomoran = penomoranService.getPenomoran("penluh");
-		Penomoran p = penomoran.get(0);
-		Integer currentNumber = penomoran.get(0).getNomor() + 1;
+		Penomoran p = penomoranService.getNomor(1);
+		Integer currentNumber = p.getNomorPenkum() + 1;
 		
 		if (penkum.getNomor() == null) {
 			penkum.setNomor(currentNumber);
@@ -108,7 +99,7 @@ public class PenkumController {
 		penkumService.save(penkum);
 		
 		if (penkum.getNomor() == currentNumber) {
-			p.setNomor(currentNumber);
+			p.setNomorPenkum(currentNumber);
 			penomoranService.save(p);
 		}
 		return "redirect:/penkum/list?tahun=now";
@@ -119,9 +110,8 @@ public class PenkumController {
 			BindingResult bindingResult) {
 			
 		m.addAttribute("daftarKelurahan", kelurahanService.list());
-		List<Penomoran> penomoran = penomoranService.getPenomoran("penluh");
-		Penomoran p = penomoran.get(0);
-		Integer currentNumber = penomoran.get(0).getNomor() + 1;
+		Penomoran p = penomoranService.getNomor(1);
+		Integer currentNumber = p.getNomorPenkum() + 1;
 		
 		if (bindingResult.hasErrors()) {
 			return "penkum/formUpdate";
@@ -130,7 +120,7 @@ public class PenkumController {
 		penkumService.update(penkum);
 		
 		if (penkum.getNomor() == currentNumber) {
-			p.setNomor(currentNumber);
+			p.setNomorPenkum(currentNumber);
 			penomoranService.save(p);
 		}
 		return "redirect:/penkum/list?tahun=now";
