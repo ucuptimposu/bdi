@@ -6,8 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "penomoran")
@@ -17,13 +15,8 @@ public class Penomoran {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@NotEmpty
-	@NotNull
-	@Column(nullable = false)
-	private String nama;
-
-	@Column(name = "nomor")
-	private Integer nomor = 0;
+	@Column(name = "nomor_penkum")
+	private Integer nomorPenkum = 0;
 
 	public Integer getId() {
 		return id;
@@ -33,19 +26,12 @@ public class Penomoran {
 		this.id = id;
 	}
 
-	public String getNama() {
-		return nama;
+	public Integer getNomorPenkum() {
+		return nomorPenkum;
 	}
 
-	public void setNama(String nama) {
-		this.nama = nama;
+	public void setNomorPenkum(Integer nomorPenkum) {
+		this.nomorPenkum = nomorPenkum;
 	}
 
-	public Integer getNomor() {
-		return nomor;
-	}
-
-	public void setNomor(Integer nomor) {
-		this.nomor = nomor;
-	}
 }
