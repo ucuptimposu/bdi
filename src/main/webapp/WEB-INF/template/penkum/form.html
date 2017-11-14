@@ -150,24 +150,14 @@
 			      </div>
 			    </div>
 			    <div class="row">
-			      <div class="col-25">
-			        <label for="country">Longitude</label>
+			      <div class="col-100">
+			        <label for="country">Dokumentasi</label>
 			      </div>
 			     <div class="col-25">
-			        <input type="text" th:field="*{longitude}" placeholder="0000000" />
-			        <span th:if="${#fields.hasErrors('longitude')}" th:errors="*{longitude}" class="error">Error</span>
-			      </div>
+			     	<input type="file" th:field="*{img1}" name="gambar" />
+			      </div>			      
 			    </div>	
-			    <div class="row">
-			      <div class="col-25">
-			        <label for="country">Longitude</label>
-			      </div>
-			     <div class="col-25">
-			        <input type="text" th:field="*{longitude}" placeholder="0000000" />
-			        <span th:if="${#fields.hasErrors('longitude')}" th:errors="*{longitude}" class="error">Error</span>
-			      </div>
-			    </div>										   	
-			    <div class="row">
+			     <div class="row">
 			    	<br/>
 			    	<input type="hidden" th:field="*{id}" />
 			    	
