@@ -33,7 +33,7 @@
 			        <label for="fname">Sasaran</label>
 			      </div>
 			      <div class="col-75">
-			        <input type="text" th:field="*{sasaran}" placeholder="Siswa-siswi SMPN 1 Palu">
+			        <input type="text" th:field="*{sasaran}" placeholder="Siswa-siswi SMPN 1 Palu" />
 			        <span th:if="${#fields.hasErrors('sasaran')}" th:errors="*{sasaran}" class="error">Error</span>
 			      </div>
 			    </div>
@@ -42,7 +42,7 @@
 			        <label for="fname">Tempat</label>
 			      </div>
 			      <div class="col-75">
-			        <input type="text" th:field="*{tempat}" placeholder="Aula SMPN 1 Palu">
+			        <input type="text" th:field="*{tempat}" placeholder="Aula SMPN 1 Palu" />
 			        <span th:if="${#fields.hasErrors('tempat')}" th:errors="*{tempat}" class="error">Error</span>
 			      </div>
 			    </div>
@@ -51,7 +51,7 @@
 			        <label for="fname">Waktu</label>
 			      </div>
 			      <div class="col-25">
-			        <input type="text" th:field="*{waktu}" placeholder="2017-01-01">
+			        <input type="text" th:field="*{waktu}" placeholder="2017-01-01" />
 			        <span th:if="${#fields.hasErrors('waktu')}" th:errors="*{waktu}" class="error">Error</span>
 			      </div>
 			    </div>
@@ -60,7 +60,7 @@
 			        <label for="country">Jumlah Peserta</label>
 			      </div>
 			     <div class="col-25">
-			        <input type="text" th:field="*{jumlahPeserta}" placeholder="50">
+			        <input type="text" th:field="*{jumlahPeserta}" placeholder="50" />
 			        <span th:if="${#fields.hasErrors('jumlahPeserta')}" th:errors="*{jumlahPeserta}" class="error">Error</span>
 			      </div>
 			    </div>
@@ -69,7 +69,7 @@
 			        <label for="country">Materi</label>
 			      </div>
 			     <div class="col-75">
-			        <input type="text" th:field="*{materi}" placeholder="Bahaya Narkoba">
+			        <input type="text" th:field="*{materi}" placeholder="Bahaya Narkoba" />
 			        <span th:if="${#fields.hasErrors('materi')}" th:errors="*{materi}" class="error">Error</span>
 			      </div>
 			    </div>
@@ -78,7 +78,7 @@
 			        <label for="country">Petugas</label>
 			      </div>
 			     <div class="col-75">
-			        <input type="text" th:field="*{petugas}">
+			        <input type="text" th:field="*{petugas}" placeholder="Ipul, Ucup, Muhadir" />
 			        <span th:if="${#fields.hasErrors('petugas')}" th:errors="*{petugas}" class="error">Error</span>
 			      </div>
 			    </div>					    
@@ -136,7 +136,7 @@
 			        <label for="country">Latitude</label>
 			      </div>
 			     <div class="col-75">
-			        <input type="text" th:field="*{latitude}" />
+			        <input type="text" th:field="*{latitude}" placeholder="1111111" />
 			        <span th:if="${#fields.hasErrors('latitude')}" th:errors="*{latitude}"  class="error">Error</span>
 			      </div>
 			    </div>	
@@ -145,7 +145,7 @@
 			        <label for="country">Longitude</label>
 			      </div>
 			     <div class="col-75">
-			        <input type="text" th:field="*{longitude}" />
+			        <input type="text" th:field="*{longitude}" placeholder="0000000" />
 			        <span th:if="${#fields.hasErrors('longitude')}" th:errors="*{longitude}" class="error">Error</span>
 			      </div>
 			    </div>									   	
