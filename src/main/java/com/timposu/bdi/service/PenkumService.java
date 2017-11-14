@@ -8,6 +8,8 @@ public interface PenkumService {
 
 	public void save(Penkum penkum);
 	
+	public void update(Penkum penkum);
+	
 	public List<Penkum> list(String tahun) throws Exception;
 	
 	public Penkum getPenkum(String id);

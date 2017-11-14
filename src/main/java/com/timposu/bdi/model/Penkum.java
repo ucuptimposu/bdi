@@ -28,7 +28,6 @@ public class Penkum {
 	@GenericGenerator(name = "uuid", strategy = "uuid2")
 	private String id;
 
-	@NotNull
 	private Integer nomor;
 
 	@NotNull

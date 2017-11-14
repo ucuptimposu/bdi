@@ -16,7 +16,12 @@ public class PenkumDaoImp extends AbstractImpDao implements PenkumDao {
 
 	@Override
 	public void save(Penkum penkum) {
-		getSession().saveOrUpdate(penkum);	
+		getSession().save(penkum);	
+	}
+	
+	@Override
+	public void update(Penkum penkum) {
+		getSession().update(penkum);	
 	}
 
 	@SuppressWarnings({ "deprecation", "unchecked" })

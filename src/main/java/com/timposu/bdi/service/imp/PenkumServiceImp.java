@@ -22,6 +22,11 @@ public class PenkumServiceImp implements PenkumService {
 	public void save(Penkum penkum) {
 		pd.save(penkum);
 	}
+	
+	@Override
+	public void update(Penkum penkum) {
+		pd.update(penkum);
+	}
 
 	@Override
 	public List<Penkum> list(String tahun) throws Exception {

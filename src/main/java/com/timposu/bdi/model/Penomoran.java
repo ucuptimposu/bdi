@@ -22,7 +22,6 @@ public class Penomoran {
 	@Column(nullable = false)
 	private String nama;
 
-	@NotEmpty
 	@Column(name = "nomor")
 	private Integer nomor = 0;
 
