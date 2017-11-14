@@ -19,8 +19,8 @@ public class Penomoran {
 	
 	@NotEmpty
 	@NotNull
-	@Column(nullable = false, name = "nama")
-	private String namaKegiatan;
+	@Column(nullable = false)
+	private String nama;
 
 	@NotEmpty
 	@Column(name = "nomor")
@@ -34,12 +34,12 @@ public class Penomoran {
 		this.id = id;
 	}
 
-	public String getNamaKegiatan() {
-		return namaKegiatan;
+	public String getNama() {
+		return nama;
 	}
 
-	public void setNamaKegiatan(String namaKegiatan) {
-		this.namaKegiatan = namaKegiatan;
+	public void setNama(String nama) {
+		this.nama = nama;
 	}
 
 	public Integer getNomor() {

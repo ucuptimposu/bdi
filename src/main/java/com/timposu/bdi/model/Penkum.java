@@ -27,70 +27,75 @@ public class Penkum {
 	@GeneratedValue(generator = "uuid")
 	@GenericGenerator(name = "uuid", strategy = "uuid2")
 	private String id;
-	
+
 	@NotNull
-	@NotEmpty
 	private Integer nomor;
-	
+
 	@NotNull
 	private JenisPelaksanaanPenkum jenisPelaksanaan = JenisPelaksanaanPenkum.LANGSUNG;
-	
+
 	@NotNull
-    @NotEmpty
-    @Column(nullable = false)
-    @Size(min = 3)
-    private String sasaran;
-    
-    @NotNull
-    @NotEmpty
-    @Column(nullable = false)
-    @Size(min = 3)
-    private String materi;
-    
-    @NotNull
-    @Column(nullable = false)
-    private Integer jumlahPeserta;
-    
-    @Temporal(TemporalType.DATE)
-    private Date waktu;
-    
-    @NotNull
-    @NotEmpty
-    @Column(nullable = false)
-    @Size(min = 3)
-    private String tempat;
-    
-    private String ket;
-    
-    private String mediaTidakLangsung;
-    
-    private String ketTidakLangsung;
-    
-    @NotNull
-    @NotEmpty
-    @Column(nullable = false)
-    @Size(min = 5)
-    private String petugas;
-    
-    private String kerjaSamaInstansiLain;
-    
-    private String img;
-    
-    @NotNull
-    @NotEmpty
-    @Column(nullable = false)
-    @Size(min = 5)
-    private String latitude;
-    
-    @NotNull
-    @NotEmpty
-    @Column(nullable = false)
-    @Size(min = 5)
-    private String longitude;
-    
-    @ManyToOne
-    @JoinColumn(name = "id_kelurahan")
-    private Kelurahan kelurahan;
+	@NotEmpty
+	@Column(nullable = false)
+	@Size(min = 3)
+	private String sasaran;
+
+	@NotNull
+	@NotEmpty
+	@Column(nullable = false)
+	@Size(min = 3)
+	private String materi;
+
+	@NotNull
+	@Column(nullable = false)
+	private Integer jumlahPeserta;
+
+	@Temporal(TemporalType.DATE)
+	private Date waktu;
+
+	@NotNull
+	@NotEmpty
+	@Column(nullable = false)
+	@Size(min = 3)
+	private String tempat;
+
+	private String ket;
+
+	private String mediaTidakLangsung;
+
+	private String ketTidakLangsung;
+
+	@NotNull
+	@NotEmpty
+	@Column(nullable = false)
+	@Size(min = 5)
+	private String petugas;
+
+	private String kerjaSamaInstansiLain;
+
+	private String img1;
+
+	private String img2;
+
+	private String img3;
+
+	private String img4;
+
+	@NotNull
+	@NotEmpty
+	@Column(nullable = false)
+	@Size(min = 5)
+	private String latitude;
+
+	@NotNull
+	@NotEmpty
+	@Column(nullable = false)
+	@Size(min = 5)
+	private String longitude;
+
+	@ManyToOne
+	@JoinColumn(name = "id_kelurahan")
+	private Kelurahan kelurahan;
 
 	public String getId() {
 		return id;
@@ -196,12 +201,36 @@ public class Penkum {
 		this.kerjaSamaInstansiLain = kerjaSamaInstansiLain;
 	}
 
-	public String getImg() {
-		return img;
+	public String getImg1() {
+		return img1;
 	}
 
-	public void setImg(String img) {
-		this.img = img;
+	public void setImg1(String img1) {
+		this.img1 = img1;
+	}
+
+	public String getImg2() {
+		return img2;
+	}
+
+	public void setImg2(String img2) {
+		this.img2 = img2;
+	}
+
+	public String getImg3() {
+		return img3;
+	}
+
+	public void setImg3(String img3) {
+		this.img3 = img3;
+	}
+
+	public String getImg4() {
+		return img4;
+	}
+
+	public void setImg4(String img4) {
+		this.img4 = img4;
 	}
 
 	public String getLatitude() {
@@ -226,6 +255,6 @@ public class Penkum {
 
 	public void setKelurahan(Kelurahan kelurahan) {
 		this.kelurahan = kelurahan;
-	}   
-	
+	}
+
 }

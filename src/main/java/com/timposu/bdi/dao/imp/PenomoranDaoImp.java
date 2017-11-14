@@ -1,6 +1,9 @@
 package com.timposu.bdi.dao.imp;
 
+import java.util.List;
+
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -18,11 +21,13 @@ public class PenomoranDaoImp implements PenomoranDao {
 		sf.getCurrentSession().saveOrUpdate(p);	
 	}
 
+	@SuppressWarnings({ "deprecation", "unchecked" })
 	@Override
-	public Penomoran getPenomoran(Integer id) {
-		Penomoran penomoran = sf.getCurrentSession()
-				.get(Penomoran.class, id);
-		return penomoran;
+	public List<Penomoran> getNomor(String value) {
+		List<Penomoran> nomor = sf.getCurrentSession()
+				.createCriteria(Penomoran.class)
+				.add(Restrictions.like("nama", value)).list();
+		return nomor;
 	}
 
 }

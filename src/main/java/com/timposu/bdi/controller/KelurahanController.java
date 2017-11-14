@@ -50,7 +50,7 @@ public class KelurahanController {
 	@PostMapping("/form")
 	public String prosesForm(Model m, @Valid @ModelAttribute Kelurahan kelurahan, 
 			BindingResult bindingResult) {
-		System.out.println(kelurahan.getNamaKelurahan());
+		
 		m.addAttribute("daftarKecamatan", kcs.list());
 		
 		if (bindingResult.hasErrors()) {

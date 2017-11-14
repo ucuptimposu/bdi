@@ -1,5 +1,7 @@
 package com.timposu.bdi.service.imp;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +24,8 @@ public class PenomoranServiceImp implements PenomoranService {
 	}
 
 	@Override
-	public Penomoran getPenomoran(Integer id) {
-		return pd.getPenomoran(id);
+	public List<Penomoran> getPenomoran(String value) {
+		return pd.getNomor(value);
 	}
 
 }

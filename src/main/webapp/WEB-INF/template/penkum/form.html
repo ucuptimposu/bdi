@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout/admin/template">
+<head>
+<title>Edit Peserta</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+	<div layout:fragment="content">
+		<ul class="breadcrumb">
+		  <li><a th:href="@{/}">Dashboard</a></li>
+		  <li><a th:href="@{/penkum/list}">Penkum</a></li>
+		  <li>Form</li>
+		</ul>
+		
+		<div class="container-kecil">
+			<h1>Form Penkum</h1>
+			<form th:action="@{/penkum/form}" th:object="${penkum}" method="post">
+				<div class="row">
+			      <div class="col-25">
+			        <label for="fname">Jenis Pelaksanaan</label>
+			      </div>
+			      <div class="col-75">
+			      	<input type="radio" name="radiojeniskeg" value="LANGSUNG" th:field="*{jenisPelaksanaan}" checked="checked" onclick="kegPenkum()" /> Langsung
+			        <input type="radio" name="radiojeniskeg" value="TIDAK_LANGSUNG" th:field="*{jenisPelaksanaan}" onclick="kegPenkum()" /> Tidak Langsung
+			      </div>
+			    </div>
+				<div class="row">
+			      <div class="col-25">
+			        <label for="fname">Sasaran</label>
+			      </div>
+			      <div class="col-75">
+			        <input type="text" th:field="*{sasaran}" placeholder="Siswa-siswi SMPN 1 Palu">
+			        <span th:if="${#fields.hasErrors('sasaran')}" th:errors="*{sasaran}" class="error">Error</span>
+			      </div>
+			    </div>
+			    <div class="row">
+			      <div class="col-25">
+			        <label for="fname">Tempat</label>
+			      </div>
+			      <div class="col-75">
+			        <input type="text" th:field="*{tempat}" placeholder="Aula SMPN 1 Palu">
+			        <span th:if="${#fields.hasErrors('tempat')}" th:errors="*{tempat}" class="error">Error</span>
+			      </div>
+			    </div>
+			    <div class="row">
+			      <div class="col-25">
+			        <label for="fname">Waktu</label>
+			      </div>
+			      <div class="col-25">
+			        <input type="text" th:field="*{waktu}" placeholder="2017-01-01">
+			        <span th:if="${#fields.hasErrors('waktu')}" th:errors="*{waktu}" class="error">Error</span>
+			      </div>
+			    </div>
+			    <div class="row">
+			      <div class="col-25">
+			        <label for="country">Jumlah Peserta</label>
+			      </div>
+			     <div class="col-25">
+			        <input type="text" th:field="*{jumlahPeserta}" placeholder="50">
+			        <span th:if="${#fields.hasErrors('jumlahPeserta')}" th:errors="*{jumlahPeserta}" class="error">Error</span>
+			      </div>
+			    </div>
+			    <div class="row">
+			      <div class="col-25">
+			        <label for="country">Materi</label>
+			      </div>
+			     <div class="col-75">
+			        <input type="text" th:field="*{materi}" placeholder="Bahaya Narkoba">
+			        <span th:if="${#fields.hasErrors('materi')}" th:errors="*{materi}" class="error">Error</span>
+			      </div>
+			    </div>			    
+			    <div class="row">
+			      <div class="col-25">
+			        <label for="country">Kerja Sama Instansi Lain</label>
+			      </div>
+			     <div class="col-75">
+			        <input type="text" th:field="*{kerjaSamaInstansiLain}" placeholder="Dinas Pendidikan Kota Palu">
+			        <span th:if="${#fields.hasErrors('kerjaSamaInstansiLain')}" th:errors="*{kerjaSamaInstansiLain}">Error</span>
+			      </div>
+			    </div>
+			    <div class="row">
+			      <div class="col-25">
+			        <label for="country">Keterangan</label>
+			      </div>
+			     <div class="col-75">
+			        <input type="text" th:field="*{ket}" placeholder="Keterangan">
+			        <span th:if="${#fields.hasErrors('ket')}" th:errors="*{ket}">Error</span>
+			      </div>
+			    </div>
+			    <div class="row">
+			      <div class="col-25">
+			        <label for="country">Media Tidak Langsung</label>
+			      </div>
+			     <div class="col-75">
+			        <input type="text" th:field="*{mediaTidakLangsung}" placeholder="Media Tidak Langsung">
+			        <span th:if="${#fields.hasErrors('mediaTidakLangsung')}" th:errors="*{mediaTidakLangsung}">Error</span>
+			      </div>
+			    </div>		
+			    <div class="row">
+			      <div class="col-25">
+			        <label for="country">Keterangan Tidak Langsung</label>
+			      </div>
+			     <div class="col-75">
+			        <input type="text" th:field="*{ketTidakLangsung}" placeholder="Keterangan Tidak Langsung">
+			        <span th:if="${#fields.hasErrors('ketTidakLangsung')}" th:errors="*{ketTidakLangsung}">Error</span>
+			      </div>
+			    </div>									   	
+			    <div class="row">
+			    	<br/>
+			    	<input type="hidden" th:field="*{id}" />
+			    	<input type="hidden" th:field="*{nomor}" />
+			      	<input type="submit" value="Simpan">
+			    </div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
