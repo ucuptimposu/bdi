@@ -1,5 +1,9 @@
 package com.timposu.bdi.controller;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -17,6 +21,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.timposu.bdi.model.Penkum;
 import com.timposu.bdi.model.Penomoran;
@@ -35,6 +40,9 @@ public class PenkumController {
 	private PenomoranService penomoranService;
 	@Autowired
 	private KelurahanService kelurahanService;
+	
+	//Save the uploaded file to this folder
+    private static String UPLOADED_FOLDER = "D://temp//";
 	
 	// Konventer String ke Date
 	@InitBinder
@@ -82,7 +90,8 @@ public class PenkumController {
 	
 	@PostMapping("/form")
 	public String prosesForm(Model m, @Valid @ModelAttribute Penkum penkum,
-			BindingResult bindingResult) {
+			BindingResult bindingResult,
+			@RequestParam(name = "img1", required = false) MultipartFile file) {
 			
 		m.addAttribute("daftarKelurahan", kelurahanService.list());
 		Penomoran p = penomoranService.getNomor(1);
@@ -98,6 +107,16 @@ public class PenkumController {
 				
 		penkumService.save(penkum);
 		
+		if (!file.isEmpty()) {
+			try {
+				byte[] bytes = file.getBytes();
+				Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
+				Files.write(path, bytes);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}			
+		}
+		
 		if (penkum.getNomor() == currentNumber) {
 			p.setNomorPenkum(currentNumber);
 			penomoranService.save(p);
@@ -107,7 +126,8 @@ public class PenkumController {
 	
 	@PostMapping("/form/update")
 	public String prosesFormUpdate(Model m, @Valid @ModelAttribute Penkum penkum,
-			BindingResult bindingResult) {
+			BindingResult bindingResult, 
+			@RequestParam(name = "img1", required = false) MultipartFile file) {
 			
 		m.addAttribute("daftarKelurahan", kelurahanService.list());
 		Penomoran p = penomoranService.getNomor(1);
@@ -118,6 +138,16 @@ public class PenkumController {
 		}
 				
 		penkumService.update(penkum);
+		
+		if (!file.isEmpty()) {
+			try {
+				byte[] bytes = file.getBytes();
+				Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
+				Files.write(path, bytes);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}			
+		}
 		
 		if (penkum.getNomor() == currentNumber) {
 			p.setNomorPenkum(currentNumber);

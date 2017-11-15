@@ -7,7 +7,7 @@
 	<packaging>war</packaging>
 	<name>bdi</name>
 
-<properties>
+	<properties>
 		<spring.version>4.3.12.RELEASE</spring.version>
 		<hibernate.version>5.2.12.Final</hibernate.version>
 		<failOnMissingWebXml>false</failOnMissingWebXml>
