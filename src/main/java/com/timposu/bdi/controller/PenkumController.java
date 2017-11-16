@@ -1,5 +1,6 @@
 package com.timposu.bdi.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -7,6 +8,9 @@ import java.nio.file.Paths;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +46,7 @@ public class PenkumController {
 	private KelurahanService kelurahanService;
 	
 	//Save the uploaded file to this folder
-    private static String UPLOADED_FOLDER = "D://temp//";
+    private static String UPLOADED_FOLDER = "/static/img/penluh";
 	
 	// Konventer String ke Date
 	@InitBinder
@@ -90,32 +94,44 @@ public class PenkumController {
 	
 	@PostMapping("/form")
 	public String prosesForm(Model m, @Valid @ModelAttribute Penkum penkum,
-			BindingResult bindingResult,
-			@RequestParam(name = "img1", required = false) MultipartFile file) {
+			BindingResult bindingResult, HttpSession session,
+			@RequestParam(name = "file", required = false) MultipartFile file) 
+					throws IOException {
+		
+		ServletContext context = session.getServletContext();
 			
 		m.addAttribute("daftarKelurahan", kelurahanService.list());
 		Penomoran p = penomoranService.getNomor(1);
 		Integer currentNumber = p.getNomorPenkum() + 1;
 		
+		byte[] bytes  =  null;
+		Path path = null;
+		
+		
 		if (penkum.getNomor() == null) {
 			penkum.setNomor(currentNumber);
 		}
 
+		System.out.println(currentNumber + " 1");
 		if (bindingResult.hasErrors()) {
 			return "penkum/form";
 		}
-				
-		penkumService.save(penkum);
+		
+		System.out.println(currentNumber + " 2");
 		
 		if (!file.isEmpty()) {
-			try {
-				byte[] bytes = file.getBytes();
-				Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
-				Files.write(path, bytes);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}			
+			
+			String pathimg = context.getRealPath(UPLOADED_FOLDER);
+			
+			bytes = file.getBytes();
+			path = Paths.get(pathimg + File.separator + file.getOriginalFilename());
+			penkum.setImg1(UPLOADED_FOLDER + File.separator + file.getOriginalFilename());
 		}
+		
+		penkumService.save(penkum);
+		
+		Files.write(path, bytes);
+		System.out.println(path);
 		
 		if (penkum.getNomor() == currentNumber) {
 			p.setNomorPenkum(currentNumber);
@@ -139,15 +155,15 @@ public class PenkumController {
 				
 		penkumService.update(penkum);
 		
-		if (!file.isEmpty()) {
-			try {
-				byte[] bytes = file.getBytes();
-				Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
-				Files.write(path, bytes);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}			
-		}
+//		if (!file.isEmpty()) {
+//			try {
+//				byte[] bytes = file.getBytes();
+//				Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
+//				Files.write(path, bytes);
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}			
+//		}
 		
 		if (penkum.getNomor() == currentNumber) {
 			p.setNomorPenkum(currentNumber);
